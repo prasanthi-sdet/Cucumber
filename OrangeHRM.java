@@ -57,7 +57,8 @@ public class OrangeHRM {
 			dashboardLink.click();
 			recruitmentLink.click();
 		}
-		recruitmentLink.click();
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.id("menu_recruitment_viewRecruitmentModule")));
+		driver.findElement(By.id("menu_recruitment_viewRecruitmentModule")).click();
 	}
 
 
@@ -164,7 +165,8 @@ public class OrangeHRM {
 			dashboardLink.click();
 			pimLink.click();
 		}
-		pimLink.click();
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.id("menu_pim_viewPimModule")));
+		driver.findElement(By.id("menu_pim_viewPimModule")).click();		
 		driver.manage().timeouts().implicitlyWait(15,TimeUnit.SECONDS);
 	}
 
@@ -224,6 +226,8 @@ public class OrangeHRM {
 	
 	@Then("^Verify that the vacancy was created \"(.*)\"$")
 	public void verifyVacancyCreation(String vacancyName) {
+		
+		driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);
 		driver.findElement(By.id("btnBack")).click();
 		WebElement vacancySearch_jobTitle = driver.findElement(By.id("vacancySearch_jobTitle"));
 		Select selectJobTitle = new Select(vacancySearch_jobTitle);

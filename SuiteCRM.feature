@@ -12,9 +12,9 @@ Scenario: Open the homepage and count the number of the dashlets on the page
 Scenario: Open the Leads page and add multiple lead accounts using values passed from Feature file
     Given Open the browser to the ​Alchemy CRM​ site and login
     Then Navigate to Sales -> Leads -> Create Lead
-    And Fill in the "Sales", "Leadpr005" details to create lead accounts using the values passed from the Feature file
+    And Fill in the "Sales", "PrLeadpr002" details to create lead accounts using the values passed from the Feature file
     Then Click Save to finish
-    And Navigate to the View Leads page to see results "Sales Leadpr005"
+    And Navigate to the View Leads page to see results "Sales PrLeadpr002"
     And Close the browser
     
 @Activity3
@@ -30,7 +30,7 @@ Scenario Outline: To schedule a meeting and include at least 3 invites
     
 Examples: 
       | meetingSubject | member_1 | member_2 | member_3 |
-      | SDETMeeting_001 | invitees_add_1 | invitees_add_2 | invitees_add_3 |
+      | PrSDETMeeting_002 | invitees_add_1 | invitees_add_2 | invitees_add_3 |
       
  
 @Activity4
@@ -45,4 +45,4 @@ Scenario Outline: To use an Examples table to add products
     
 Examples: 
       | productName |
-      | Product 001 |
+      | PrProduct 002 |

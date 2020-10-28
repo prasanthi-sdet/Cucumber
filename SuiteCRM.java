@@ -89,9 +89,8 @@ public class SuiteCRM {
 
 
 	@And("^Fill in the \"(.*)\", \"(.*)\" details to create lead accounts using the values passed from the Feature file$")
-	public void fillCreateLeadForm(String firstName, String lastName) throws InterruptedException {
+	public void fillCreateLeadForm(String firstName, String lastName) {
 
-		//Thread.sleep(3500);
 		wait.until(ExpectedConditions.elementToBeClickable(By.id("first_name"))).click();		
 
 		driver.findElement(By.id("first_name")).clear();
@@ -113,7 +112,8 @@ public class SuiteCRM {
 	
 
 	@And("^Navigate to the View Leads page to see results \"(.*)\"$")
-	public void navigateToViewLeads(String leadName) throws InterruptedException {		
+	public void navigateToViewLeads(String leadName) {
+		
 		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//div[text()='View Leads']")));
 		driver.findElement(By.xpath("//div[text()='View Leads']")).click();
 		
@@ -137,9 +137,8 @@ public class SuiteCRM {
 
 
 	@And("^Enter the details of the meeting \"(.*)\"$")
-	public void fillMeetingDetails(String meetingSubject) throws InterruptedException {
-		//Thread.sleep(3500);	
-		
+	public void fillMeetingDetails(String meetingSubject) {
+				
 		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("name")));
 		driver.findElement(By.id("name")).clear();
 		driver.findElement(By.id("name")).sendKeys(meetingSubject);
@@ -175,18 +174,17 @@ public class SuiteCRM {
 
 	@Then("^Click Save$")
 	public void clickOnSaveButton() {
-		WebElement scroll = driver.findElement(By.id("btnSave"));
-		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", scroll);
-		scroll.click();
+		
+		((JavascriptExecutor) driver).executeScript("window.scrollTo(0, document.body.scrollHeight)");
+		driver.findElement(By.id("SAVE_HEADER")).click();
 
 	}
 
 	
 
 	@And("^Navigate to View Meetings page and confirm creation of the meeting \"(.*)\"$")
-	public void navigateToViewMeeting(String meetingSubject) throws InterruptedException {
-		//Thread.sleep(3500);
-
+	public void navigateToViewMeeting(String meetingSubject) {
+		
 		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//div[text()='View Meetings']")));
 		driver.findElement(By.xpath("//div[text()='View Meetings']")).click();	
 		//Thread.sleep(3500);	
@@ -211,7 +209,7 @@ public class SuiteCRM {
 
 
 	@And("^Enter the details of the product \"(.*)\"$")
-	public void fillProductDetails(String productName) throws InterruptedException {
+	public void fillProductDetails(String productName) {
 		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("name")));
 		driver.findElement(By.id("name")).clear();
 		driver.findElement(By.id("name")).sendKeys(productName);
@@ -220,8 +218,8 @@ public class SuiteCRM {
 	
 
 	@And("^Go to the View Products page to see all products listed \"(.*)\"$")
-	public void navigateToViewProducts(String productName) throws InterruptedException {
-		//Thread.sleep(3500);
+	public void navigateToViewProducts(String productName) {
+		
 		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//div[text()='View Products']")));
 		driver.findElement(By.xpath("//div[text()='View Products']")).click();		
 		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.linkText(productName)));

@@ -34,8 +34,8 @@ Scenario Outline: Add multiple employees using an the Examples table
 
 Examples:
       | firstName | lastName | userName | password | confirmPassword | employeeName |
-      | abc 002 | pr | abc002 | empl0ypwd | empl0ypwd | abc 002 |
-      | XYZ 002 | PRQ | XYZ002 | empl0ypwd | empl0ypwd | XYZ 002 |
+      | abc 004 | pr | prabc002 | empl0ypwd | empl0ypwd | abc 004 pr |
+      | XYZ 004 | PRQ | prXYZ002 | empl0ypwd | empl0ypwd | XYZ 004 PRQ |
 
 @Activity4
 Scenario Outline: Creating multiple vacancies using data from an Examples table
@@ -51,5 +51,5 @@ Scenario Outline: Creating multiple vacancies using data from an Examples table
 
 Examples:
       | vacancyName |
-      | SDET_Tester_002 |
-      | Automation_Tester_002 |
+      | PrSDET_Tester_003 |
+      | PrAutomation_Tester_003 |

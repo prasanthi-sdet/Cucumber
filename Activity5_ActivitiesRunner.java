@@ -9,7 +9,7 @@ import io.cucumber.junit.Cucumber;
 @CucumberOptions(
     features = "Features",
     glue = {"stepDefinitions"},
-    tags = "@activity4",
+    tags = "@activity5",
     monochrome=true,
     strict = true
 )
